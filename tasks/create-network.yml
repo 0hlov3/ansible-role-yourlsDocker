@@ -1,0 +1,8 @@
+- name: Create yourls docker network
+  docker_network:
+    name: "{{ yourls_network_name }}"
+    ipam_driver: default
+    attachable: yes
+    labels:
+      network: "yourls"
+      project: "yourls"

@@ -1,0 +1,26 @@
+- name: Start yourls Docker Container
+  docker_container:
+    name: "{{ yourls_container_name }}"
+    image: "{{ yourls_container_image }}:{{ yourls_container_tag }}"
+    ports:
+      - "127.0.0.1:8081:80"
+    env:
+      YOURLS_SITE: "https://{{ yourls_hostname }}/"
+      YOURLS_USER: "{{ yourls_username }}"
+      YOURLS_PASS: "{{ yourls_pass }}"
+      YOURLS_DB_PASS: "{{ yourls_mysql_password }}"
+    network_mode: "{{ yourls_network_name }}"
+    networks:
+      - name: "{{ yourls_network_name }}"
+        aliases:
+          - "{{ yourls_container_name }}"
+        links:
+          - "{{ yourls_mysql_container_name }}:mysql"
+    networks_cli_compatible: yes
+    purge_networks: yes
+    state: started
+    restart_policy: "unless-stopped"
+    restart: yes
+    labels:
+      network: "yourls"
+      project: "yourls"

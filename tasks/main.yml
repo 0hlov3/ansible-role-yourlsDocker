@@ -1,0 +1,4 @@
+---
+- include_tasks: create-network.yml
+- include_tasks: start-mysql.yml
+- include_tasks: start-yourls.yml

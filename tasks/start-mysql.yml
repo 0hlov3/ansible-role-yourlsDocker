@@ -1,0 +1,20 @@
+- name: Start yourls_mysql Docker Container
+  docker_container:
+    name: "{{ yourls_mysql_container_name }}"
+    image: "{{ yourls_mysql_container_image }}:{{ yourls_mysql_container_tag }}"
+    volumes:
+      - "{{ yourls_mysql_volume }}:/etc/yourls_mysql:rw"
+    env:
+       MYSQL_ROOT_PASSWORD: "{{ yourls_mysql_password }}"
+    network_mode: "{{ yourls_network_name }}"
+    networks:
+      - name: "{{ yourls_network_name }}"
+        aliases:
+        - "{{ yourls_mysql_container_name }}"
+    networks_cli_compatible: yes
+    purge_networks: yes
+    state: started
+    restart: yes
+    labels:
+      network: "yourls"
+      project: "yourls"
