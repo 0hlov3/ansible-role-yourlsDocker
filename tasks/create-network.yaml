@@ -4,5 +4,5 @@
     ipam_driver: default
     attachable: yes
     labels:
-      network: "yourls"
-      project: "yourls"
+      network: "{{ yourls_network_name }}"
+      project: "{{ yourls_container_name }}"

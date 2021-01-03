@@ -1,0 +1,8 @@
+---
+- name: Create directory for yourls mySQL
+  file:
+    path: "{{ yourls_mysql_volume }}"
+    state: directory
+    recurse: yes
+    mode: '0755'
+...

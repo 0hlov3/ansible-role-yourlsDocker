@@ -1,4 +1,7 @@
 ---
-- include_tasks: create-network.yml
-- include_tasks: start-mysql.yml
-- include_tasks: start-yourls.yml
+- include_tasks: copy-yourls-caddyfile.yaml
+- include_tasks: create-yourls-folders.yaml
+- include_tasks: create-network.yaml
+- include_tasks: start-mysql.yaml
+- include_tasks: start-yourls.yaml
+...

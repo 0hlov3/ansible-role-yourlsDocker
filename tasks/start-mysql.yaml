@@ -1,3 +1,4 @@
+---
 - name: Start yourls_mysql Docker Container
   docker_container:
     name: "{{ yourls_mysql_container_name }}"
@@ -16,5 +17,6 @@
     state: started
     restart: yes
     labels:
-      network: "yourls"
-      project: "yourls"
+      network: "{{ yourls_network_name }}"
+      project: "{{ yourls_container_name }}"
+...

@@ -1,12 +1,25 @@
+---
+#yourls
 yourls_network_name: "yourls"
 yourls_container_name: "yourls"
 yourls_container_image: "yourls"
 yourls_container_tag: "latest"
-yourls_hostname: "your.domain.tld"
 yourls_username: "yourls_user"
 yourls_pass: "ChangeME!"
+yourls_container_listen_ip: "127.0.0.1"
+yourls_container_ports: "8081"
+
+#mySQL
 yourls_mysql_container_name: "yourls_mysql"
 yourls_mysql_container_image: "mysql"
 yourls_mysql_container_tag: "latest"
 yourls_mysql_password: "ChangeME!"
 yourls_mysql_volume: "/docker/yourls_mysql"
+
+#caddy
+yourls_caddyfile_path: "/docker/caddy/caddyfiles/"
+yourls_caddy:
+  yourls_caddy_fqdn: ""
+  yourls_caddy_log: ""
+  privatebin_caddy_tls: ""
+...

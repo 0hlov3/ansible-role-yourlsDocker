@@ -1,0 +1,7 @@
+---
+- name: Copy yourls caddyfile
+  template:
+      dest: "{{ yourls_caddyfile_path }}/yourls.caddy"
+      src: yourls.caddy.j2
+  when: (yourls_caddyfile_path is defined) and (yourls_caddyfile_path|length > 0)
+...
